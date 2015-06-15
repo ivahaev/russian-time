@@ -59,7 +59,7 @@ Returns string representation of Month
 ```go
 func (m Month) StringInCase() (month string)
 ```
-Returns representation of Month in case 
+Returns representation of Month in case:
 Января, Декабря...
 
 #### type Time
@@ -187,7 +187,7 @@ Returns string representation of Year
 ```go
 func (t Time) YearStringInCase() (year string)
 ```
-Returns string representation of Year in case 
+Returns string representation of Year in case:
 Двухтысячного года, 
 Одна тысяча девятьсот четертого года
 
