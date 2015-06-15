@@ -6,6 +6,7 @@ func (t Time) Year() int {
 	return time.Time(t).Year()
 }
 
+// Returns string representation of Year
 func (t Time) YearString() (year string) {
 	y := t.Year()
 	switch {
@@ -21,6 +22,8 @@ func (t Time) YearString() (year string) {
 	return
 }
 
+// Returns string representation of Year in case
+// Двухтысячного года, Одна тысяча девятьсот четертого года
 func (t Time) YearStringInCase() (year string) {
 	y := t.Year()
 	switch {

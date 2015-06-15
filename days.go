@@ -2,12 +2,15 @@ package rtime
 
 import "time"
 
+// A Weekday specifies a day of the week (Sunday = 0, ...).
 type Weekday time.Weekday
 
+// Returns specifies a day of the week (Sunday = 0, ...).
 func (t Time) Weekday() Weekday {
 	return Weekday(time.Time(t).Weekday())
 }
 
+// Returns string representation ofWeekday
 func (w Weekday) String() (weekday string) {
 	switch w {
 	case 0:
@@ -28,6 +31,7 @@ func (w Weekday) String() (weekday string) {
 	return
 }
 
+// Returns string representation of Day of Month
 func (t Time) DayString() (result string) {
 	day := time.Time(t).Day()
 	return dayString(day)

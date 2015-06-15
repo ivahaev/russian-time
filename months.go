@@ -2,12 +2,15 @@ package rtime
 
 import "time"
 
+// Base type for month
 type Month time.Month
 
+// Returns int month [0,12]
 func (t Time) Month() Month {
 	return Month(time.Time(t).Month())
 }
 
+// Returns string representation of Month
 func (m Month) String() (month string) {
 	switch m {
 	case Month(time.January):
@@ -38,6 +41,8 @@ func (m Month) String() (month string) {
 	return
 }
 
+// Returns representation of Month in case
+// Января, Декабря...
 func (m Month) StringInCase() (month string) {
 	switch m {
 	case Month(time.January):
