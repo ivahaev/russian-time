@@ -11,6 +11,7 @@ Installation:
 
 ```go
 import (
+    "fmt"
     "github.com/ivahaev/russian-time"
     "time"
 )
@@ -19,6 +20,22 @@ t := rtime.Now()
 // Or if you are using time.Time object:
 standardTime := time.Now()
 t = rtime.Time(standardTime)
+
+// Get full string representation:
+fmt.Println(t.String())
+// Шестнадцатое июня две тысячи пятнадцатого года, один час, тридцать шесть минут, тридцать три секунды
+
+// Get date string representation:
+fmt.Println(t.DateString())
+// Шестнадцатое июня две тысячи пятнадцатого года
+
+// Get time string representation:
+fmt.Println(t.TimeString())
+// Один час, тридцать шесть минут
+
+// Get time with seconds string representation:
+fmt.Println(t.TimeStringWithSeconds())
+// Один час, тридцать шесть минут, тридцать три секунды
 ```
 
 
@@ -42,7 +59,8 @@ Returns string representation of Month
 ```go
 func (m Month) StringInCase() (month string)
 ```
-Returns representation of Month in case Января, Декабря...
+Returns representation of Month in case 
+Января, Декабря...
 
 #### type Time
 
@@ -113,8 +131,8 @@ Returns int month [0,12]
 ```go
 func (t Time) Second() int
 ```
-Returns the second offset within the minute specified by t, in the range [0,
-59].
+Returns the second offset within the minute specified by t, 
+in the range [0,59].
 
 #### func (Time) SecondString
 
@@ -169,8 +187,9 @@ Returns string representation of Year
 ```go
 func (t Time) YearStringInCase() (year string)
 ```
-Returns string representation of Year in case Двухтысячного года, Одна тысяча
-девятьсот четертого года
+Returns string representation of Year in case 
+Двухтысячного года, 
+Одна тысяча девятьсот четертого года
 
 #### type Weekday
 
