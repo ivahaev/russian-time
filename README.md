@@ -1,2 +1,2 @@
 # russian-time
-Golang library to create datetime im russian format
+Golang library to create datetime string in russian format
