@@ -1,13 +1,26 @@
-# rtime
+# russian-time
 
 A tiny library to represent DateTime in russian language
 
 Installation:
 --
-    import "github.com/ivahaev/russian-time"
+    go get "github.com/ivahaev/russian-time"
 
 
 ## Usage
+
+```go
+import (
+    "github.com/ivahaev/russian-time"
+    "time"
+)
+// Get current local DateTime
+t := rtime.Now()
+// Or if you are using time.Time object:
+standardTime := time.Now()
+t = rtime.Time(standardTime)
+```
+
 
 #### type Month
 
