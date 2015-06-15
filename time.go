@@ -37,7 +37,11 @@ func (t Time) HourString() (result string) {
 // Returns string representation of Minute
 func (t Time) MinuteString() (result string) {
 	result = numberInString(t.Minute(), true)
-	switch t.Minute() % 10 {
+	minutes := t.Minute()
+	if minutes > 20 {
+		minutes = minutes % 10
+	}
+	switch minutes {
 	case 1:
 		result += " минута"
 	case 2, 3, 4:
@@ -51,7 +55,11 @@ func (t Time) MinuteString() (result string) {
 // Returns string representation of Second
 func (t Time) SecondString() (result string) {
 	result = numberInString(t.Second(), true)
-	switch t.Second() % 10 {
+	seconds := t.Second()
+	if seconds > 20 {
+		seconds = seconds % 10
+	}
+	switch seconds {
 	case 1:
 		result += " секунда"
 	case 2, 3, 4:
