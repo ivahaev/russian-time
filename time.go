@@ -23,49 +23,74 @@ func (t Time) Hour() int {
 // Returns string representation of Hour
 func (t Time) HourString() (result string) {
 	result = numberInString(t.Hour(), false)
-	switch t.Hour() {
-	case 1:
-		result += " час"
-	case 2, 3, 4:
-		result += " часа"
-	default:
-		result += " часов"
-	}
+	result += " " + hoursTail(t.Hour())
 	return
 }
 
 // Returns string representation of Minute
 func (t Time) MinuteString() (result string) {
 	result = numberInString(t.Minute(), true)
-	minutes := t.Minute()
-	if minutes > 20 {
-		minutes = minutes % 10
-	}
-	switch minutes {
-	case 1:
-		result += " минута"
-	case 2, 3, 4:
-		result += " минуты"
-	default:
-		result += " минут"
-	}
+	result += " " + minutesTail(t.Minute())
 	return
 }
 
 // Returns string representation of Second
 func (t Time) SecondString() (result string) {
 	result = numberInString(t.Second(), true)
-	seconds := t.Second()
-	if seconds > 20 {
+	result += " " + secondsTail(t.Second())
+	return
+}
+
+func hoursTail(hours int) (result string) {
+	switch {
+	case hours > 20 && hours < 100:
+		hours = hours % 10
+	case hours > 100:
+		hours = hours % 100 % 10
+	}
+	switch hours {
+	case 1:
+		result = "час"
+	case 2, 3, 4:
+		result = "часа"
+	default:
+		result = "часов"
+	}
+	return
+}
+
+func minutesTail(minutes int) (result string) {
+	switch {
+	case minutes > 20 && minutes < 60:
+		minutes = minutes % 10
+	case minutes > 60:
+		minutes = minutes % 60 % 10
+	}
+	switch minutes {
+	case 1:
+		result = "минута"
+	case 2, 3, 4:
+		result = "минуты"
+	default:
+		result = "минут"
+	}
+	return
+}
+
+func secondsTail(seconds int) (result string) {
+	switch {
+	case seconds > 20 && seconds < 60:
 		seconds = seconds % 10
+	case seconds > 60:
+		seconds = seconds % 60 % 10
 	}
 	switch seconds {
 	case 1:
-		result += " секунда"
+		result = "секунда"
 	case 2, 3, 4:
-		result += " секунды"
+		result = "секунды"
 	default:
-		result += " секунд"
+		result = "секунд"
 	}
 	return
 }
@@ -84,7 +109,7 @@ func numberInString(num int, female bool) (result string) {
 		if female {
 			result = "Две"
 		} else {
-			result = "Две"
+			result = "Два"
 		}
 	case 3:
 		result = "Три"
